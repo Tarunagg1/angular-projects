@@ -1,0 +1,25 @@
+.navbar-brand{
+    justify-content: space-between !important;
+}
+
+.navbar-brand .shopping {
+  font-size: 35px;
+  margin-right: 10px;
+}
+.navbar-brand strong {
+  font-size: 30px;
+}
+
+.form-control {
+  border-bottom: 5px;
+  margin-left: 25px;
+  width: 600px;
+}
+
+.searchicon {
+  z-index: 10;
+  position: absolute;
+  right: 51%;
+  top: 31%;
+  color: blue;
+}

@@ -1,0 +1,48 @@
+.cart-top {
+  display: flex;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: cornsilk;
+  background-clip: border-box;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  position: relative;
+}
+
+.items {
+  margin: 0 15px;
+}
+
+.items img {
+  width: 65px;
+}
+
+.items a:hover {
+  color: blue;
+}
+
+.card {
+  padding: 20px;
+  margin: 40px;
+}
+.card img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 15px;
+  transition: 0.3s ease-in-out;
+}
+
+.card img:hover {
+  transition: 0.3s ease-in-out;
+  transform: scale(1.1);
+}
+
+.itemtext {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100ch;
+}
+
+.productitem img {
+}

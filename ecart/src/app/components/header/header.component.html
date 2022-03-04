@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <div class="navbar-brand aling-center d-flex" style="justify-content: space-between;">
+        <i class="fas fa-shipping-fast shopping"></i>
+        <a style="text-decoration: none; color:white;" routerLink="/products">
+            <strong>E-cart</strong>
+        </a>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search product">
+        </div>
+        <span class="fas fa-search searchicon"></span>
+    </div>
+    <a routerLink="/cart" class="btn btn-primary">
+        <i style="font-size: 30px;" class="fas fa-cart-plus"></i>
+        <div class="badge bg-danger">{{totalNumber}}</div>
+    </a>
+</nav>
