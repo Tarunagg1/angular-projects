@@ -1,0 +1,59 @@
+<div class="search">
+  <form #form="ngForm" (submit)="onSubmit()">
+    <input type="text" placeholder="Search city..." autocomplete="off" name="cityName" [(ngModel)]="cityName">
+  </form>
+</div>
+
+<div class="container" *ngIf="weatherData">
+  <div class="upperData">
+    <img src="../assets/media/cold.jpg" *ngIf="weatherData.main.temp <= 15" alt="cold">
+    <img src="../assets/media/warm.jpg" *ngIf="weatherData.main.temp > 15" alt="warm">
+
+    <div class="weatherData">
+      <div class="location">{{weatherData.name}}</div>
+      <div class="temprture">{{ weatherData.main.temp | number:'1.0-0'}}</div>
+    </div>
+
+  </div>
+  <div class="lowerData">
+    <div class="moreInfolabel">
+      More Information
+    </div>
+
+    <div class="moreinfoconntainer">
+
+      <div class="infoBlock">
+        <div class="infoBllockLabel">
+          <span>min</span>
+        </div>
+        <div class="infoBlockValue">
+          {{weatherData.main.temp_min | number:'1.0-0'}}
+        </div>
+      </div>
+      <div class="infoBlock">
+        <div class="infoBllockLabel">
+          <span>max</span>
+        </div>
+        <div class="infoBlockValue">
+          {{weatherData.main.temp_max | number:'1.0-0'}}
+        </div>
+      </div>
+      <div class="infoBlock">
+        <div class="infoBllockLabel">
+          <span>humidity</span>
+        </div>
+        <div class="infoBlockValue">
+          {{weatherData.main.humidity}}%
+        </div>
+      </div>
+      <div class="infoBlock">
+        <div class="infoBllockLabel">
+          <span>wind</span>
+        </div>
+        <div class="infoBlockValue">
+          {{weatherData.wind.speed}}%
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
