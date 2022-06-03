@@ -11,6 +11,11 @@ import { ListComponent } from './components/observable/list/list.component';
 import { IntervalComponent } from './components/observable/interval/interval.component';
 import { OfFromComponent } from './components/observable/of-from/of-from.component';
 import { ToarrayComponent } from './components/observable/toarray/toarray.component';
+import { CustomComponent } from './components/observable/custom/custom.component';
+import { MapComponent } from './components/observable/map/map.component';
+import { PluckComponent } from './components/observable/pluck/pluck.component';
+import { FilterComponent } from './components/observable/filter/filter.component';
+import { TapComponent } from './components/observable/tap/tap.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +28,11 @@ import { ToarrayComponent } from './components/observable/toarray/toarray.compon
     IntervalComponent,
     OfFromComponent,
     ToarrayComponent,
+    CustomComponent,
+    MapComponent,
+    PluckComponent,
+    FilterComponent,
+    TapComponent,
   ],
   imports: [
     BrowserModule,

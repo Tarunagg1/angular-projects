@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="my-3">
+        <h2>custom-observable</h2>
+        <br>
+
+        <div class="row">
+            <div class="col-md-6">
+                <strong>Ex-01 (manual)</strong>
+                <ul class="techList mt-3" [ngClass]="techStatus === 'completed' ? 'completed' : techStatus === 'error' ? 'error' : ''" id="ul1"></ul>
+            </div>
+            <div class="col-md-6">
+                <strong>Ex-02 (custom interval observable)</strong>
+                <ul class="techList mt-3">
+                    <li>Angular</li>
+                    <li>Typescript</li>
+                    <li>Routing</li>
+                </ul>
+            </div>
+        </div>
+        <br>
+
+        <div class="col-md-12">
+            <p class="bg-light py-2 px-3 border rounded">
+                <strong>Randoms names</strong> 'Anup','Tarun','Aggarwal','Shefali',"Nidhi"
+            </p>
+            <hr>
+            <p>Randao name: <strong class="text-success">Tarun</strong></p>
+            <span class="badge bg-success">Success</span>
+        </div>
+    </div>
+</div>
