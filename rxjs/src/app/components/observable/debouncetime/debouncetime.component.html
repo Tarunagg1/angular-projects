@@ -1,0 +1,32 @@
+<ngx-loading-bar></ngx-loading-bar>
+<div class="container">
+    <div class="my-3">
+        <h2>Devounce</h2>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <strong>Ex - 01 <span class="text-primary">DebounceTime</span> </strong>
+                <hr>
+                <div class="form-group row">
+                    <label for="dijid" class="col-md-2 col-form-label">Search...</label>
+                    <div class="col-sm-10">
+                        <input type="email" #myinput class="form-control form-control-lg" placeholder="Enter email">
+                    </div>
+                </div>
+                <span *ngIf="data">Requsted data <strong class="text-success">{{data}}</strong></span>
+            </div>
+
+            <div class="col-md-6">
+                <strong>Ex - 02 <span class="text-primary">DistnictUntilChange</span> </strong>
+                <hr>
+                <div class="form-group row">
+                    <label for="dijid" class="col-md-2 col-form-label">Search...</label>
+                    <div class="col-sm-10">
+                        <input type="email" #myinput2 class="form-control form-control-lg" placeholder="Enter email">
+                    </div>
+                </div>
+                <span *ngIf="data2">Requsted data <strong class="text-success">{{data2}}</strong></span>
+            </div>
+        </div>
+    </div>
+</div>

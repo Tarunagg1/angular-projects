@@ -16,6 +16,15 @@ import { MapComponent } from './components/observable/map/map.component';
 import { PluckComponent } from './components/observable/pluck/pluck.component';
 import { FilterComponent } from './components/observable/filter/filter.component';
 import { TapComponent } from './components/observable/tap/tap.component';
+import { TakeComponent } from './components/observable/take/take.component';
+import { RetryComponent } from './components/observable/retry/retry.component';
+import {HttpClientModule} from '@angular/common/http';
+import { DebouncetimeComponent } from './components/observable/debouncetime/debouncetime.component';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { SubjectComponent } from './components/observable/subject/subject.component';
+import { Comp1Component } from './comps/comp1/comp1.component';
+import { Comp2Component } from './comps/comp2/comp2.component';
+import { Comp3Component } from './comps/comp3/comp3.component';
 
 @NgModule({
   declarations: [
@@ -33,10 +42,19 @@ import { TapComponent } from './components/observable/tap/tap.component';
     PluckComponent,
     FilterComponent,
     TapComponent,
+    TakeComponent,
+    RetryComponent,
+    DebouncetimeComponent,
+    SubjectComponent,
+    Comp1Component,
+    Comp2Component,
+    Comp3Component,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    LoadingBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
