@@ -25,6 +25,9 @@ import { SubjectComponent } from './components/observable/subject/subject.compon
 import { Comp1Component } from './comps/comp1/comp1.component';
 import { Comp2Component } from './comps/comp2/comp2.component';
 import { Comp3Component } from './comps/comp3/comp3.component';
+import { ReplaySubjectComponent } from './components/observable/replay-subject/replay-subject.component';
+import { ConcatMergeComponent } from './components/observable/concat-merge/concat-merge.component';
+import { SwitchMapComponent } from './components/observable/switch-map/switch-map.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +52,9 @@ import { Comp3Component } from './comps/comp3/comp3.component';
     Comp1Component,
     Comp2Component,
     Comp3Component,
+    ReplaySubjectComponent,
+    ConcatMergeComponent,
+    SwitchMapComponent,
   ],
   imports: [
     BrowserModule,

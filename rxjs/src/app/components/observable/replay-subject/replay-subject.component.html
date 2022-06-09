@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="my-3">
+        <h2>Reply subject</h2>
+        <br>
+
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <input type="text" class="form-control" #video placeholder="Enter text">
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-success" (click)="addvideo(video)">Add video</button>
+                <!-- <ul id="elContainer"></ul> -->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <hr>
+                <strong>Ex- 1</strong>
+                <hr>
+
+                <ul id="elContainer" *ngFor="let ele of user1Val">
+                    <li class="bg-light py-2 px-3 boorder rounded">{{ele}}</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <hr>
+                <strong>Ex- 2</strong>
+                <hr>
+
+                <ul id="elContainer" *ngFor="let ele of user2Val">
+                    <li class="bg-light py-2 px-3 boorder rounded">{{ele}}</li>
+                </ul>
+                <button class="btn btn-success" (click)="user2Subscribe()"
+                    [ngClass]="subscriveMode2 ? 'btn-danger' : 'btn-success'">{{subscriveMode2 ? 'unsubscribe' :
+                    'Subscribe'}}</button>
+            </div>
+            <div class="col-md-4">
+                <hr>
+                <strong>Ex- 3</strong>
+                <hr>
+
+                <ul id="elContainer" *ngFor="let ele of user3Val">
+                    <li class="bg-light py-2 px-3 boorder rounded">{{ele}}</li>
+                </ul>
+                <button class="btn btn-success" (click)="user2UnSubscribe()"
+                    [ngClass]="subscriveMode3 ? 'btn-danger' : 'btn-success'">{{subscriveMode3 ? 'unsubscribe' :
+                    'Subscribe'}}</button>
+
+            </div>
+        </div>
+    </div>
+</div>
