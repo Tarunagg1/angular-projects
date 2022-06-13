@@ -1,0 +1,40 @@
+<div *ngIf="error" class="alert alert-danger" role="alert">
+    <strong>An Error Accure</strong> {{error}}
+  </div>
+
+<div class="card-auth">
+    <div class="row">
+        <div class="col-text-center">
+            <h1 class="h5 mb-5 font-weight-normal">{{loginMode ? "Signin " : "Signup"}} </h1>
+        </div>
+    </div>
+    <div class="row fBox">
+        <form [formGroup]="Form" (ngSubmit)="onSubmit()">
+
+            <div class="col-md-5 aling-self-center">
+                <div class="form-group input-group">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="fa fa-envelope"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Enter email" formControlName="email">
+                    <small *ngIf="!Form.get('email')?.valid && Form.get('email')?.touched" class="font-text w-100 text-danger">Please Enter Email</small>
+                </div>
+                <div class="form-group input-group">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="fa fa-lock"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="enter password" formControlName="password">
+                    <small class="font-text w-100 text-danger" *ngIf="!Form.get('password')?.valid && Form.get('password')?.touched">Please Enter Password</small>
+                </div>
+                <div class="form-group">
+                    <button type="submit"  class="btn btn-block btn-outline-primary">Signn In</button>
+                </div>
+
+                <p>{{loginMode ? "Don't have account? " : "Allready have an account"}} <a
+                        style="cursor: pointer; color: blue;" (click)="onModeSwitch()"> {{loginMode ? "Create one " :
+                        "Signin"}} </a> </p>
+                <a href="#">Forgot password</a>
+            </div>
+        </form>
+    </div>
+</div>
