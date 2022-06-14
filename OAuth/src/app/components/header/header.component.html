@@ -14,10 +14,11 @@
                     <a class="nav-link" href="#">Link</a>
                 </li>
             </ul>
-            <form class="d-flex">
+            <div class="d-flex">
                 <a routerLink="auth" *ngIf="!logdIn"><button class="btn btn-outline-success" type="submit">Signin</button></a> &nbsp;
                 <a routerLink="auth" *ngIf="logdIn"><button class="btn btn-outline-success" type="submit">Profile</button></a> &nbsp;
-            </form>
+                <a routerLink="auth" (click)="onSignOut()" *ngIf="logdIn"><button class="btn btn-outline-success" type="button">Logout</button></a> &nbsp;
+            </div>
         </div>
     </div>
 </nav>

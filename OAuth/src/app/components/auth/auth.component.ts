@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { AuthResponse } from 'src/app/models/auth-response';
 import { DesignutilityService } from 'src/app/service/designutility.service';
 import { ErrorService } from 'src/app/service/error.service';
+import { SocialAuthService } from 'angularx-social-login';
+import { GoogleLoginProvider } from 'angularx-social-login';
 
 @Component({
   selector: 'app-auth',
@@ -19,7 +21,8 @@ export class AuthComponent implements OnInit {
     private fb: FormBuilder,
     private authService: DesignutilityService,
     private errorService: ErrorService,
-    private router: Router
+    private router: Router,
+    private AuthService: SocialAuthService
   ) {}
 
   Form!: FormGroup;
@@ -33,6 +36,24 @@ export class AuthComponent implements OnInit {
 
   onModeSwitch() {
     this.loginMode = !this.loginMode;
+  }
+
+  onGoogleSignIn() {
+    this.AuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
+      .then((res) => {
+        console.log(res);
+        this.authService.googleSignIn(res.idToken).subscribe(
+          (data) => {
+            console.log(data);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   onSubmit() {
@@ -52,7 +73,7 @@ export class AuthComponent implements OnInit {
         (data) => {
           this.router.navigate(['/dashboard']);
         },
-        (err) => {          
+        (err) => {
           this.error = err;
         }
       );
