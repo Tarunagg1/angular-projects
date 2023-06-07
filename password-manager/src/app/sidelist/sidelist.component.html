@@ -1,0 +1,47 @@
+<div class="container mx-auto my-16 px-24">
+  <h1 class="text-5xl mt-0 mb-5">Password manager</h1>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum earum delectus in libero consectetur nam eveniet!
+    Molestias impedit voluptates quis!</p>
+  <button class="mb-5 mx-0 5 px-5 py-3 text-sm bl-gray-900 text-white shadow rounded-md">
+    Add new site
+  </button>
+
+  <!-- add new site -->
+  <div class="px-20 py-10 mb-10 my-5 border-4 border-gray-900">
+    <h2 class="text-3xl text-center">Yoou can add a new site from the below form</h2>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+      <div class="flex flex-col">
+        <label class="text-lg-forn-medium mb-2">Site name</label>
+        <input [(ngModel)]="site_name" type="text" name="site_name" placeholder="Enter site name"
+          class="border-2 border-gray-900 p-2 rounded-lg w-full">
+      </div>
+      <div class="flex flex-col">
+        <label class="text-lg-forn-medium mb-2">Site url</label>
+        <input [(ngModel)]="site_url" type="text" name="site_url" placeholder="Enter site url"
+          class="border-2 border-gray-900 p-2 rounded-lg w-full">
+      </div>
+      <div class="flex flex-col">
+        <label class="text-lg-forn-medium mb-2">Site Image url</label>
+        <input [(ngModel)]="site_image_URL" type="text" name="site_image_URL" placeholder="upload site image url"
+          class="border-2 border-gray-900 p-2 rounded-lg w-full">
+      </div>
+      <button class="mt-10 mx-0.5 px-5 py-3 text-sm border-2 bg-gray-900 text-white shadow rounded-md">{{formState}} Site</button>
+      <button class="mt-10 mx-0.5 px-5 py-3 text-sm border-2 bborder-gray-900 text-gray shadow rounded-md">Cancel</button>
+    </form>
+  </div>
+
+  <div class="grid grid-cols-4 gap-5">
+    <div *ngFor="let site of allSites | async" class="shadow-lg border-2 border-gray-900">
+      <img [src]="site.site_image_URL" alt="">
+      <h3 class="p-3 text-xl font-bold">{{site.site_name}}</h3>
+      <div class="w-60 m-3 px-3 bg-blue-200 text-blue-800 rounded-lg text-sm">
+        {{site.site_url}}
+      </div>
+      <button class="my-3 ml-1 mx-0.5 px-3 py-3 text-sm bg-gray-900 text-white shadow rounded-md">Add new
+        password</button>
+      <button (click)="editSite(site.site_name,site.site_url,site.site_image_URL,site.id)"
+        class="my-3 mx-0.5 px-5 py-2 text-sm border-2 border-gray-900  text-gray-900  shadow rounded-md">Edit</button>
+      <button (click)="deleteSite(site.id)" class="my-3 mx-0.5 px-5 py-2 text-sm border-2 border-gray-900 text-gray-900 shadow rounded-md">Delete</button>
+    </div>
+  </div>
+</div>
