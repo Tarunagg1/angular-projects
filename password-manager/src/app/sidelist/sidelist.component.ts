@@ -15,7 +15,13 @@ export class SidelistComponent {
   site_image_URL!: string;
   id!: string;
   formState: string = "Add new";
+  isSuccess:boolean = false;
+  isSuccessMessage:string = "Success";
 
+  showAlert(message:string){
+    this.isSuccessMessage = message;
+    this.isSuccess = true;
+  }
 
   constructor(private passwordManager: PasswordManagerService) {
     this.loadSites();
@@ -25,8 +31,8 @@ export class SidelistComponent {
     if (this.formState === "Add new") {
       this.passwordManager.addSite(values)
         .then(() => {
+          this.showAlert("Data saved successfully")
           console.log('db data save');
-
         })
         .catch((err) => {
           console.log(err);
@@ -35,7 +41,10 @@ export class SidelistComponent {
     } else {
       this.passwordManager.updateSite(this.id, values)
         .then(() => {
+          this.isSuccess = true;
           console.log('db updated');
+          this.showAlert("Data updated successfully")
+
           // this.formState = "add new";
           this.loadSites();
         })
@@ -60,7 +69,7 @@ export class SidelistComponent {
   deleteSite(id: string) {
     this.passwordManager.deleteeSite(id)
       .then(() => {
-        console.log('site deleted');
+        this.showAlert("Data deletd successfully")
         this.loadSites();
       })
       .catch((err) => {

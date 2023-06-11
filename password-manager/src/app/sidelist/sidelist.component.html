@@ -6,6 +6,10 @@
     Add new site
   </button>
 
+  <div *ngIf="isSuccess" class="p-5 my-3 bg-teal-100 text-teal-900">
+    {{isSuccessMessage}}
+  </div>
+
   <!-- add new site -->
   <div class="px-20 py-10 mb-10 my-5 border-4 border-gray-900">
     <h2 class="text-3xl text-center">Yoou can add a new site from the below form</h2>
@@ -25,8 +29,10 @@
         <input [(ngModel)]="site_image_URL" type="text" name="site_image_URL" placeholder="upload site image url"
           class="border-2 border-gray-900 p-2 rounded-lg w-full">
       </div>
-      <button class="mt-10 mx-0.5 px-5 py-3 text-sm border-2 bg-gray-900 text-white shadow rounded-md">{{formState}} Site</button>
-      <button class="mt-10 mx-0.5 px-5 py-3 text-sm border-2 bborder-gray-900 text-gray shadow rounded-md">Cancel</button>
+      <button class="mt-10 mx-0.5 px-5 py-3 text-sm border-2 bg-gray-900 text-white shadow rounded-md">{{formState}}
+        Site</button>
+      <button
+        class="mt-10 mx-0.5 px-5 py-3 text-sm border-2 bborder-gray-900 text-gray shadow rounded-md">Cancel</button>
     </form>
   </div>
 
@@ -37,11 +43,14 @@
       <div class="w-60 m-3 px-3 bg-blue-200 text-blue-800 rounded-lg text-sm">
         {{site.site_url}}
       </div>
-      <button class="my-3 ml-1 mx-0.5 px-3 py-3 text-sm bg-gray-900 text-white shadow rounded-md">Add new
+      <button routerLink="/password-list"
+        [queryParams]="{id:site.id, siteName:site.site_name,siteUrl:site.site_url,siteImgUrl:site.site_image_URL}"
+        class="my-3 ml-1 mx-0.5 px-3 py-3 text-sm bg-gray-900 text-white shadow rounded-md">Add new
         password</button>
       <button (click)="editSite(site.site_name,site.site_url,site.site_image_URL,site.id)"
         class="my-3 mx-0.5 px-5 py-2 text-sm border-2 border-gray-900  text-gray-900  shadow rounded-md">Edit</button>
-      <button (click)="deleteSite(site.id)" class="my-3 mx-0.5 px-5 py-2 text-sm border-2 border-gray-900 text-gray-900 shadow rounded-md">Delete</button>
+      <button (click)="deleteSite(site.id)"
+        class="my-3 mx-0.5 px-5 py-2 text-sm border-2 border-gray-900 text-gray-900 shadow rounded-md">Delete</button>
     </div>
   </div>
 </div>
