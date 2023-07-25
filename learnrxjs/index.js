@@ -1,32 +1,33 @@
 "use strict";
+// import { Observable, interval, map, Subscriber } from "rxjs";
 Object.defineProperty(exports, "__esModule", { value: true });
-var rxjs_1 = require("rxjs");
-// function listenRadio(): Observable<any> {
-//   return interval(1000);
-// }
-// listenRadio().subscribe(
-//   (data) => {
-//     console.log(data);
-//   },
-//   (err) => {
-//     console.log(err);
+// const obc = new Observable((observer: any) => {
+//   let count = 0;
+//   const producer = setInterval(() => {
+//       observer.next(count++)
+//   }, 1000);
+//   return ()=>{
+//     clearInterval(producer)
 //   }
-// );
-// interval(1000)
-// .pipe(map(data => data*2))
-// .subscribe((data: number) => {
-//   console.log(data);
-// });
-function fetchUser() {
-    var observable = new rxjs_1.Observable(function (observer) {
-        var user = { data: { firstName: "tarun", mobile: "999999999" } };
-        observer.next(user);
-    });
-    console.log(observable);
-    return observable.pipe((0, rxjs_1.map)(function (data) { return data.data; }));
-}
-fetchUser()
-    .subscribe(function (user) {
-    console.log(user);
-});
+// })
+// obc.subscribe({
+//   next: (data: number) => console.log(data),
+//   error(err) {
+//       console.log(err);
+//   },
+//   complete: () => {
+//     console.log('done');
+//   }
+// })
+//#----------- OF --------------- # //
+var rxjs_1 = require("rxjs");
+var names = ["tarun", "arun", "aravind", "shefali", "karan"];
+// let num$ = of(1,2,3);
+// let nameSet = from(["tarun","Aggarwal"]);
+// const isAllowed = Promise.resolve(true)
+// concat(num$,nameSet,isAllowed)
+// .subscribe(console.log)
+var rxjs_2 = require("rxjs");
+(0, rxjs_1.from)([1, 2, 3, 4, 5])
+    .pipe((0, rxjs_2.map)(function (v, idx) { return v * 2; })).subscribe(console.log);
 //# sourceMappingURL=index.js.map
