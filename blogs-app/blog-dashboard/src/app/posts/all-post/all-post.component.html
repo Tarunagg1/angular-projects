@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card shadow-effect bg-secondary-theme">
+        <div class="card-body text-center">
+          <h3 class="text-theme-center">All Blogs Posts</h3>
+          <p>Form here you can manage your blog posts</p>
+          <button class="btn btn-info bg-theme" routerLink="/posts/new">Add New Post</button>
+          <button class="btn btn-warning ml-2" routerLink="/">Back to Dashboard</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- All posts -->
+
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <div class="card shadow-effect">
+        <div class="card-body">
+          <table class="table row-border hover">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Post image</th>
+                <th>Title</th>
+                <th>Excerpt</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let post of allPosts; let i = index">
+                <td>{{i+1}}</td>
+                <td>
+                  <img src="{{post.postImgPath}}" alt="iimg">
+                </td>
+                <td>{{post.title}}</td>
+                <td>{{post.excerpt}}</td>
+                <td>{{post.category.category}}</td>
+                <td>{{post.createdAt}}</td>
+                <td>
+                  <div class="btn btn-sm btn-warning" routerLink="/posts/new" [queryParams]="{id:post.id}">Edit</div>
+                  <button class="btn btn-sm btn-danger" (click)="deletePostData(post)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

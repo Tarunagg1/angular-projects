@@ -1,0 +1,16 @@
+<div class="card shadow-effect" *ngIf="postData">
+  <!-- src="https://images.pexels.com/photos/15414193/pexels-photo-15414193/free-photo-of-pretty-woman-in-dress.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" -->
+  <img src="{{postData.postImgPath}}" alt="" srcset="">
+  <div class="card-body">
+    <small class="bg-light text-danger text-center">{{postData.category.category}}</small>
+    <small class="bg-light text-success text-center ml-3">Featured</small>
+    <small class="bg-light text-info text-center ml-3">Views - {{postData.views}}</small>
+
+    <h5 class="mt-1">{{postData.title}}</h5>
+    <p>{{postData.excerpt}}</p>
+
+    <!-- <small class="bg-light text-warning text-center ml-3">last update - SEPT 20, 2020</small> -->
+    <small class="bg-light text-warning text-center ml-3">{{postData.createdAt.seconds | date}}</small>
+
+  </div>
+</div>

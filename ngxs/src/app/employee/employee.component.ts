@@ -56,16 +56,18 @@ export class EmployeeComponent implements OnInit, OnDestroy {
         this.empForm.value
       ).subscribe(
         (data) => {
+          console.log('oijj9io');
           this.getPosts();
         },
         (err) => {
           console.log(err);
         }
-      );
-    } else {
-      if (this.empForm.valid) {
-        this.store.dispatch(new AddPost(this.empForm.value));
+        );
       } else {
+        if (this.empForm.valid) {
+          this.store.dispatch(new AddPost(this.empForm.value));
+          this.onCloseModal();
+        } else {
         console.log('validation fail');
       }
     }
